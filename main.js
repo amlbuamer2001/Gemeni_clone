@@ -12,6 +12,7 @@ const showTypingEffect=(apiResponse,textElement)=>{
         if(currentWordIndex==words.length){
             clearInterval(typingInterval)
         }
+        window.scrollTo(0,chatList.scrollHeight)
     },75)
 }
 
@@ -69,7 +70,7 @@ const showLoading = () => {
     div.classList.add('message','incoming','loading')
     div.innerHTML=html;
     chatList.appendChild(div)
-
+    window.scrollTo(0,chatList.scrollHeight)
     generateApiResponse(div)
 };
 
@@ -89,6 +90,7 @@ const handleOutGoingChat = () => {
   div.querySelector(".text").innerHTML = userMessage;
   chatList.appendChild(div);
   typingForm.reset();
+  window.scrollTo(0,chatList.scrollHeight)
   setTimeout(showLoading, 500);
 };
 
